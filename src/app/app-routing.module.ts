@@ -10,7 +10,8 @@ const routes: Routes = [
   {path : "login", component : LoginComponent},
   {path : "", component : LoginComponent},
   { path :"admin", component : AdminTemplateComponent , canActivate : [AuthenticationGuard],
-    children : [{path : "products", component : ProductsComponent},
+    children :
+      [{path : "products", component : ProductsComponent},
       {path : "customers", component : CustomersComponent},]},
 
 

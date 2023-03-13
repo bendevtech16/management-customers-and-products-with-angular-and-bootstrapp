@@ -93,4 +93,8 @@ export class ProductsComponent implements  OnInit{
     this.currentPage = i;
     this.handleGetPageProduct();
   }
+
+  handleAddProduct() {
+
+  }
 }
