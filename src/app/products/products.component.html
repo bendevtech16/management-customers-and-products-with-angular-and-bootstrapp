@@ -50,6 +50,11 @@
                           <i class="bi bi-trash"></i>
                         </button>
                       </td>
+                      <td *ngIf="authService.hasRole('ADMIN')">
+                        <button class=" btn btn-success" (click)="handleEditProduct(p)">
+                          <i class="bi bi-pencil"></i>
+                        </button>
+                      </td>
                     </tr>
                   </tbody>
             </table>
