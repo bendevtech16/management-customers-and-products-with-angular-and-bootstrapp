@@ -1,6 +1,6 @@
 
 <div class="container">
-   <nav class="p-2 m-2">
+   <nav *ngIf="authService.hasRole('ADMIN')" class="p-2 m-2 border border-success">
       <button class="btn btn btn-success" (click)="handleAddProduct()"> New Product</button>
    </nav>
   <ng-template #errors>

@@ -5,17 +5,17 @@ import {CustomersComponent} from "./customers/customers.component";
 import {LoginComponent} from "./login/login.component";
 import {AdminTemplateComponent} from "./admin-template/admin-template.component";
 import {AuthenticationGuard} from "./guards/authentication.guard";
+import {NewProductComponent} from "./new-product/new-product.component";
 
 const routes: Routes = [
-  {path : "login", component : LoginComponent},
-  {path : "", component : LoginComponent},
-  { path :"admin", component : AdminTemplateComponent , canActivate : [AuthenticationGuard],
-    children :
-      [{path : "products", component : ProductsComponent},
-      {path : "customers", component : CustomersComponent},]},
-
-
-];
+    {path : "login", component : LoginComponent},
+    {path : "", component : LoginComponent},
+    { path :"admin", component : AdminTemplateComponent , canActivate : [AuthenticationGuard],
+      children :
+        [{path : "products", component : ProductsComponent},
+        {path : "customers", component : CustomersComponent},
+          {path : "newProduct", component : NewProductComponent},]},
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

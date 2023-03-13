@@ -4,6 +4,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Observable, of} from "rxjs";
 import {AuthenticationService} from "../services/authentication.service";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -23,7 +24,7 @@ export class ProductsComponent implements  OnInit{
 
 
   constructor( private productService : ProductService, private  fb : FormBuilder,
-               public authService : AuthenticationService){ // injection of  services
+               public authService : AuthenticationService,private router : Router){ // injection of  services
   }
 
   ngOnInit( ) : void  {
@@ -95,6 +96,6 @@ export class ProductsComponent implements  OnInit{
   }
 
   handleAddProduct() {
-
+  this.router.navigateByUrl("/admin/newProduct")
   }
 }
