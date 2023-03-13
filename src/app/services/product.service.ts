@@ -19,7 +19,7 @@ export class ProductService {
       { id : UUID.UUID(), name : "car", price : 2500000  , promotion : true},
       { id : UUID.UUID(), name : "smart phone", price : 1590500 , promotion: false},
     ];
-    for (let i = 0; i<10; i++) {
+    for (let i = 0; i<20; i++) {
       this.products.push({id: UUID.UUID(), name: "computer", price: 159000, promotion: true});
       this.products.push({id: UUID.UUID(), name: "printer", price: 1589000, promotion: false});
       this.products.push({id: UUID.UUID(), name: "car", price: 2500000, promotion: true});

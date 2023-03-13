@@ -3,6 +3,7 @@ import { ProductService } from './../services/product.service';
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Observable, of} from "rxjs";
+import {AuthenticationService} from "../services/authentication.service";
 
 
 @Component({
@@ -14,14 +15,15 @@ export class ProductsComponent implements  OnInit{
 
   public products! : Array<Product>;
   currentPage : number = 0;
-  pageSize : number = 8;
+  pageSize : number = 10;
   totalPages : number = 0;
   errorMessage! : string;
   searchFormGroup! : FormGroup; // to use it i need to inject FormBuilder
   currentAction : string = "all";
 
 
-  constructor( private productService : ProductService, private  fb : FormBuilder) { // injection of a service
+  constructor( private productService : ProductService, private  fb : FormBuilder,
+               public authService : AuthenticationService){ // injection of  services
   }
 
   ngOnInit( ) : void  {
@@ -53,7 +55,8 @@ export class ProductsComponent implements  OnInit{
     }
 
 
-  handleDeleteProduct(p: Product) {     let conf = confirm("Are you sure to delete it?");
+  handleDeleteProduct(p: Product) {
+    let conf = confirm("Are you sure to delete it?");
       if (conf == false) return;
     this.productService.deleteProduct(p.id).subscribe({
       next : (data)=>{

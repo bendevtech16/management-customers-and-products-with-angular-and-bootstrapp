@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="col-md-6                                                                                                                                                                                         bf  offset-md-3">
+    <div class="card">
+      <div class="card-header bg-success text-center fs-1 text-light"> Authentication </div>
+      <div class="text-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+      <!-- {{userFormGroup.value |json}}  // data binding-->
+      <div class="card-body">
+        <form [formGroup] = "userFormGroup" (ngSubmit)="handleLogin()">
+          <div class="mb-3">
+            <label class="form-label">Username</label>
+            <input type="text" class="form-control" formControlName = "username">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">password</label>
+            <input type="password" class="form-control" formControlName = "password">
+          </div>
+          <div>
+            <button class="btn btn-success" type="submit">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
